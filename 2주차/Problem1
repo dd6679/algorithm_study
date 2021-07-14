@@ -1,0 +1,29 @@
+def solution(numbers, hand):
+    answer = ''
+    key = [[1,4,7,'*'], [2,5,8,0], [3,6,9,'#']]
+    lpos = (0,3)
+    rpos = (2,3)
+    for i in numbers:
+        if i in key[0]:
+            answer += "L"
+            lpos = (0, key[0].index(i))
+        elif i in key[2]:
+            answer += "R"
+            rpos = (2, key[2].index(i))
+        elif i in key[1]:
+            pos = (1, key[1].index(i))
+            if abs(pos[0]-lpos[0])+abs(pos[1]-lpos[1]) > abs(pos[0]-rpos[0])+abs(pos[1]-rpos[1]):
+                answer += "R"
+                rpos = pos
+            elif abs(pos[0]-lpos[0])+abs(pos[1]-lpos[1]) < abs(pos[0]-rpos[0])+abs(pos[1]-rpos[1]):
+                answer += "L"
+                lpos = pos
+            elif abs(pos[0]-lpos[0])+abs(pos[1]-lpos[1]) == abs(pos[0]-rpos[0])+abs(pos[1]-rpos[1]):
+                if hand[0].upper() == "R":
+                    answer += "R"
+                    rpos = pos
+                else:
+                    answer += "L"
+                    lpos = pos
+    
+    return answer
