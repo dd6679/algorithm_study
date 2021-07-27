@@ -1,4 +1,4 @@
-# 2주차
+# 3주차
 프로그래머스 | 2021 카카오 채용연계형 인턴십
 https://programmers.co.kr/learn/challenges
 ## 숫자 문자열과 영단어
